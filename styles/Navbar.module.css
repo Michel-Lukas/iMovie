@@ -1,0 +1,34 @@
+.navbar__wrapper {
+   display: flex;
+   justify-content: space-between;
+   padding-inline: 12.5rem;
+   height: 4rem;
+   background-color: #363636;
+   align-items: center;
+   font-size: 1.15rem;
+}
+
+.navbar__title {
+   color: #a4a4a4;
+   background-color: inherit;
+}
+
+.navbar__link {
+   color: #a4a4a4;
+   text-decoration: none;
+   background-color: inherit;
+}
+
+.navbar__link:is(:hover, :active) {
+   font-weight: 500;
+}
+
+.navbar__link > * {
+   background-color: inherit;
+}
+
+.navbar__group {
+   display: flex;
+   gap: 1.5rem;
+   background-color: inherit;
+}
