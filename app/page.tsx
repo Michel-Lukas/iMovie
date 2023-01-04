@@ -63,29 +63,87 @@ export default async function HomePage() {
 
    return (
       <div className={styles.wrapper}>
-         <div className={styles.hero}>
-            {trending != undefined ? (
-               <Link href={`/movies/${trending[0].id}`}>
+         <div className={styles.discover__section}>
+            <div className={styles.discover__wrapper}>
+               <Link href={`/movies/${discoverMovie.id}`}>
                   <img
+                     className={styles.discover__thumbnail}
                      src={
                         IMAGE_BASE_URL +
                         '/' +
-                        BACKDROP_SIZE +
+                        POSTER_SIZE +
                         '/' +
-                        trending[0].backdrop_path
+                        discoverMovie.poster_path
                      }
-                     alt="Hero Banner"
+                     alt=""
                   />
                </Link>
-            ) : (
-               <div>Waiting</div>
-            )}
+               <Link href={`/shows/${discoverShow.id}`}>
+                  <img
+                     className={styles.discover__thumbnail}
+                     src={
+                        IMAGE_BASE_URL +
+                        '/' +
+                        POSTER_SIZE +
+                        '/' +
+                        discoverShow.poster_path
+                     }
+                     alt=""
+                  />
+               </Link>
+            </div>
+         </div>
+         <div
+            className={styles.section}
+            style={{ backgroundColor: '#dedede' }}>
+            <h2 className={styles.heading}>Top Rated Movies</h2>
+            <div className={styles.section__wrapper}>
+               {topMovie?.map((movie) => (
+                  <Link href={`/movies/${movie.id}`}>
+                     <img
+                        className={styles.thumbnail}
+                        src={
+                           IMAGE_BASE_URL +
+                           '/' +
+                           POSTER_SIZE +
+                           '/' +
+                           movie.poster_path
+                        }
+                     />
+                  </Link>
+               ))}
+            </div>
+         </div>
+         <div
+            className={styles.section}
+            style={{ backgroundColor: '#3a3a3a' }}>
+            <h2
+               className={styles.heading}
+               style={{ color: '#dedcdc' }}>
+               Top Rated Shows
+            </h2>
+            <div className={styles.section__wrapper}>
+               {topShows?.map((show) => (
+                  <Link href={`/shows/${show.id}`}>
+                     <img
+                        className={styles.thumbnail}
+                        src={
+                           IMAGE_BASE_URL +
+                           '/' +
+                           POSTER_SIZE +
+                           '/' +
+                           show.poster_path
+                        }
+                     />
+                  </Link>
+               ))}
+            </div>
          </div>
 
-         <div className={styles.trending__section}>
+         <div className={styles.section}>
             <h2 className={styles.heading}>Trending</h2>
-            <div className={styles.trending__wrapper}>
-               {trending?.slice(1).map((trend) => (
+            <div className={styles.section__wrapper}>
+               {trending?.map((trend) => (
                   <Link
                      href={
                         trend.media_type == 'tv'
@@ -104,37 +162,6 @@ export default async function HomePage() {
                      />
                   </Link>
                ))}
-            </div>
-         </div>
-
-         <div className={styles.discover__section}>
-            <div className={styles.discover__wrapper}>
-               <Link href={`/movies/${discoverMovie.id}`}>
-                  <img
-                     className={styles.discover__thumbnail}
-                     src={
-                        IMAGE_BASE_URL +
-                        '/' +
-                        POSTER_SIZE +
-                        '/' +
-                        discoverMovie.poster_path
-                     }
-                     alt=""
-                  />
-               </Link>
-               <Link href={`/movies/${discoverMovie.id}`}>
-                  <img
-                     className={styles.discover__thumbnail}
-                     src={
-                        IMAGE_BASE_URL +
-                        '/' +
-                        POSTER_SIZE +
-                        '/' +
-                        discoverShow.poster_path
-                     }
-                     alt=""
-                  />
-               </Link>
             </div>
          </div>
       </div>
