@@ -28,10 +28,6 @@ async function fetchCast(id: number) {
 async function fetchDirector(id: number) {
    try {
       const result = await Api.fetchCreditsMovie(id);
-      console.log(
-         result.crew.filter((crew: any) => crew.job === 'Director')
-      );
-
       return result.crew.filter(
          (crew: any) => crew.job === 'Director'
       ) as any;

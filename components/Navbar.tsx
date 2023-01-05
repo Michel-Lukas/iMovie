@@ -29,7 +29,7 @@ function Navbar() {
                   Lists
                </Link>
                <Link href="#" className={styles.navbar__link}>
-                  Genres
+                  Watchlist
                </Link>
             </div>
             <div className={styles.navbar__group}>

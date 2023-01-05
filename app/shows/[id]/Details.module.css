@@ -82,27 +82,30 @@
    font-weight: 400;
 }
 
-.actor__section {
+.section {
    margin-top: 1rem;
-   display: grid;
-   grid-template-columns: repeat(5, 1fr);
-   gap: 1rem;
 }
 
-.actor__picture {
+.grid {
+   display: grid;
+   gap: 1rem;
+   grid-template-columns: repeat(6, 1fr);
+}
+
+.grid__picture {
    border-radius: 0.5rem;
 }
 
-.actor {
+.thumb {
    gap: 0.15rem;
    display: flex;
    flex-direction: column;
 }
 
-.actor__name {
+.thumb__title {
    color: #000;
 }
 
-.actor__character {
+.thumb__subtitle {
    color: #6a6a6a;
 }

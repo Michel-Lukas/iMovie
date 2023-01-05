@@ -94,7 +94,7 @@ export default async function ShowDetails({ params }: any) {
                      </>
                   ))}
                </p>
-               <p>Seasons: {number_of_seasons} seasons</p>
+               <p>Seasons: {number_of_seasons}</p>
                <p>
                   Production:{' '}
                   {production_companies.map(
@@ -118,26 +118,53 @@ export default async function ShowDetails({ params }: any) {
                </p>
                <p>In Production: {in_production ? 'Yes' : 'No'}</p>
             </div>
-            <div className={styles.actor__section}>
-               {cast?.map((actor: any) => (
-                  <div className={styles.actor}>
-                     {' '}
-                     <img
-                        className={styles.actor__picture}
-                        src={
-                           actor.profile_path
-                              ? `${IMAGE_BASE_URL}/${POSTER_SIZE}/${actor.profile_path}`
-                              : 'NoImage'
-                        }
-                     />
-                     <h2 className={styles.actor__name}>
-                        {actor.name}
-                     </h2>
-                     <p className={styles.actor__character}>
-                        {actor.character}
-                     </p>
-                  </div>
-               ))}
+            <div className={styles.section}>
+               <h2 className={styles.overview__title}>Seasons</h2>
+               <div className={styles.grid}>
+                  {seasons.map((season: any) => (
+                     <div className={styles.thumb}>
+                        <img
+                           className={styles.grid__picture}
+                           src={
+                              IMAGE_BASE_URL +
+                              '/' +
+                              POSTER_SIZE +
+                              '/' +
+                              season.poster_path
+                           }
+                        />
+                        <h3 className={styles.thumb__title}>
+                           {season.name}
+                        </h3>
+                        <p className={styles.thumb__subtitle}>
+                           {season.episode_count} Episodes
+                        </p>
+                     </div>
+                  ))}
+               </div>
+            </div>
+            <div className={styles.section}>
+               <h2 className={styles.overview__title}>Cast</h2>
+               <div className={styles.grid}>
+                  {cast?.map((actor: any) => (
+                     <div className={styles.actor}>
+                        <img
+                           className={styles.grid__picture}
+                           src={
+                              actor.profile_path
+                                 ? `${IMAGE_BASE_URL}/${POSTER_SIZE}/${actor.profile_path}`
+                                 : 'NoImage'
+                           }
+                        />
+                        <h2 className={styles.thumb__title}>
+                           {actor.name}
+                        </h2>
+                        <p className={styles.thumb__subtitle}>
+                           {actor.character}
+                        </p>
+                     </div>
+                  ))}
+               </div>
             </div>
          </div>
       </>
