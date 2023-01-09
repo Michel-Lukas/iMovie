@@ -1,11 +1,14 @@
 import Api from '../../../helpers/api';
 import styles from './Details.module.css';
 import { convertMoney } from '../../../helpers/converter';
+import { POSTER_SIZE, IMAGE_BASE_URL } from '../../../helpers/config';
 import {
-   POSTER_SIZE,
-   BACKDROP_SIZE,
-   IMAGE_BASE_URL,
-} from '../../../helpers/config';
+   AiOutlineSearch,
+   AiOutlineUser,
+   AiOutlineHeart,
+} from 'react-icons/ai';
+import { UserContext } from '../../context/UserContext';
+import { useContext } from 'react';
 
 async function fetchDetails(id: number) {
    try {

@@ -1,12 +1,19 @@
+'use client';
+
 import Link from 'next/link';
-import styles from '../styles/Navbar.module.css';
+import styles from './Navbar.module.css';
 import {
    AiOutlineSearch,
    AiOutlineUser,
    AiOutlineHeart,
 } from 'react-icons/ai';
+import { UserContext } from '../context/UserContext';
+import { useContext } from 'react';
 
 function Navbar() {
+   const [user] = useContext(UserContext);
+   console.log(user);
+
    return (
       <div>
          <div className={styles.navbar__wrapper}>
@@ -25,23 +32,31 @@ function Navbar() {
                </Link>
             </div>
             <div className={styles.navbar__group}>
-               <Link href="#" className={styles.navbar__link}>
+               <Link href="/lists" className={styles.navbar__link}>
                   Lists
                </Link>
-               <Link href="#" className={styles.navbar__link}>
+               <Link href="/watchlist" className={styles.navbar__link}>
                   Watchlist
                </Link>
             </div>
             <div className={styles.navbar__group}>
-               <Link href="#" className={styles.navbar__link}>
+               <Link href="/search" className={styles.navbar__link}>
                   <AiOutlineSearch size={25} />
                </Link>
-               <Link href="#" className={styles.navbar__link}>
+               <Link href="/favourite" className={styles.navbar__link}>
                   <AiOutlineHeart size={25} />
                </Link>
-               <Link href="#" className={styles.navbar__link}>
-                  <AiOutlineUser size={25} />
-               </Link>
+               {user ? (
+                  <Link
+                     href="/profile"
+                     className={styles.navbar__link}>
+                     <AiOutlineUser size={25} />
+                  </Link>
+               ) : (
+                  <Link href="/login" className={styles.navbar__link}>
+                     <AiOutlineUser size={25} />
+                  </Link>
+               )}
             </div>
          </div>
       </div>

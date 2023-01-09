@@ -1,0 +1,45 @@
+.wrapper {
+   margin-inline: 12.5rem;
+   margin-top: 5rem;
+}
+
+.heading {
+   font-size: 3rem;
+   font-weight: 600;
+   margin-bottom: 1.5rem;
+}
+
+.input {
+   padding: 0.3rem 0.5rem;
+   background: rgba(105, 105, 105, 0.1);
+   border-radius: 0.25rem;
+   border: 1px solid rgba(105, 105, 105, 0.25);
+   color: #3a3a3a;
+   transition: all 0.25s;
+}
+
+.input:is(:focus, :active) {
+   outline: none;
+   background: rgba(105, 105, 105, 0.25);
+}
+
+.button {
+   width: 5rem;
+   padding-block: 0.25rem;
+   cursor: pointer;
+   border-radius: 0.25rem;
+   border: none;
+   background: rgba(105, 105, 105, 1);
+   transition: all 0.25s;
+}
+
+.button:is(:hover, :active) {
+   background: rgba(105, 105, 105, 0.8);
+}
+
+.form {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+   max-width: 15rem;
+}

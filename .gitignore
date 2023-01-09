@@ -36,5 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 /helpers/api.js
-/helpers/config.js
+/helpers/*.js
 .idea
